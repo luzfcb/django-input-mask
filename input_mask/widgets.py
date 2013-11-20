@@ -29,12 +29,14 @@ class InputMask(forms.TextInput):
             else:
                 class_ = 'mask mask-reverse '
 
-            class_ += dumps(self.mask).replace('"', '&quot;')
+            #class_ += dumps(self.mask).replace('"', '&quot;')
+            class_ += dumps(self.mask).replace("'", '&quot;')
 
-            if attrs is not None and 'class' in attrs:
-                class_ = '%s %s' % (attrs['class'], class_)
-
-            attrs['class'] = mark_safe(class_)
+            final_attrs = self.build_attrs(self.attrs, type=self.input_type, name=name)
+            if 'class' in final_attrs:
+                attrs['class'] = u'%s %s' % (final_attrs['class'], mark_safe(class_))
+            else:
+                attrs['class'] = mark_safe(class_)
 
         return super(InputMask, self).render(name, value, attrs=attrs)
 
