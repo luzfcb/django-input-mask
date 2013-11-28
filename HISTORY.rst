@@ -3,6 +3,15 @@
 History
 -------
 
+
+1.3.9 (2013-11-28)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+New features:
+
+* Added initial implementation of BootstrapDateInputMask widget, thanks to `@luzfcb`_
+
+
 1.3.8 (2013-11-20)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 

@@ -64,6 +64,35 @@ Add :code:`input_mask` to the :code:`INSTALLED_APPS` setting.
 * :code:`input_mask.fields.DecimalField` will automatically handle separators.
 * :code:`input_mask.contrib.localflavor.*.fields.*DecimalField` will use local-based separators.
 
+**BootstrapDateInputMask masks**
+
+  .. code:: python
+   
+   models.py
+
+   from django.db import models
+      class YouModel(models.Model):
+         date_field = models.DateField()
+   
+   forms.py
+
+   form .models import YouModel
+   from input_mask.widgets import BootstrapDateInputMask
+
+   class MyForm(forms.ModelForm):
+      other_date_field = forms.DateField(
+         widget=BootstrapDateInputMask()
+      )
+ 
+      class Meta:
+         model = YouModel
+         widgets = {
+            'date_field': BootstrapDateInputMask(),
+         }
+
+* :code:`input_mask.widgets.BootstrapDateInputMask` will automatically handle separators based on DATE_INPUT_FORMATS defined on settings.py.
+
+
 **Creating your own masks**
 
   .. code:: python
