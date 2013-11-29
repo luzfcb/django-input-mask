@@ -203,12 +203,12 @@ def javascript_date_format(python_date_format):
 
 def meiomask_date_format(python_date_format):
     meiomask = python_date_format.replace(r'%Y', '9999')
-    meiomask = meiomask.replace(r'%m', '99')
-    meiomask = meiomask.replace(r'%d', '99')
+    meiomask = meiomask.replace(r'%m', '19')
+    meiomask = meiomask.replace(r'%d', '39')
     if '%' in meiomask:
         meiomask = ''
     if not meiomask:
-        meiomask = '9999/99/99'
+        meiomask = '9999/19/39'
     return meiomask
 
 
