@@ -1,7 +1,7 @@
-from django.conf import settings
 from django import forms
+from django.conf import settings
 
-from .utils import money_mask, decimal_mask
+from .utils import decimal_mask, money_mask
 
 
 class DecimalField(forms.DecimalField):

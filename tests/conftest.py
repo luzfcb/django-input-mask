@@ -1,14 +1,9 @@
 import os
-import sys
 
 from django.core import management
 
 
 def pytest_addoption(parser):
-    parser.addoption('--no-pkgroot', action='store_true', default=False,
-                     help='Remove package root directory from sys.path, ensuring that '
-                          'rest_framework is imported from the installed site-packages. '
-                          'Used for testing the distribution.')
     parser.addoption('--staticfiles', action='store_true', default=False,
                      help='Run tests with static files collection, using manifest '
                           'staticfiles storage. Used for testing the distribution.')
@@ -18,7 +13,7 @@ def pytest_configure(config):
     import django
     from django.conf import settings
     if django.VERSION < (1, 10):
-        PASSWORD_HASHERS=(
+        PASSWORD_HASHERS = (
             'django.contrib.auth.hashers.MD5PasswordHasher',
         )
     else:
@@ -67,7 +62,6 @@ def pytest_configure(config):
             PASSWORD_HASHERS,
         ),
     )
-
 
     # Manifest storage will raise an exception if static files are not present (ie, a packaging failure).
     if config.getoption('--staticfiles'):

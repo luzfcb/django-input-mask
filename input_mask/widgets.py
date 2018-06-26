@@ -1,7 +1,6 @@
 from django import forms
 
-from .utils import input_mask, decimal_mask
-
+from .utils import decimal_mask, input_mask
 
 __all__ = (
     'InputMask',
@@ -10,6 +9,7 @@ __all__ = (
 
 
 InputMask = input_mask(forms.TextInput)
+
 
 class DecimalInputMask(decimal_mask(forms.TextInput)):
     pass

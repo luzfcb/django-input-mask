@@ -1,9 +1,9 @@
+from decimal import Decimal, DecimalException
+
 from django.forms import ValidationError
 
 from ....fields import DecimalField
 from .widgets import BRDecimalInput
-
-from decimal import Decimal, DecimalException
 
 
 class BRDecimalField(DecimalField):

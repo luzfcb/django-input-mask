@@ -1,8 +1,8 @@
-from django.conf import settings
-from django import forms
-
 import json
+
 import six
+from django import forms
+from django.conf import settings
 
 
 def mask_cls(widget_cls, js=None, mask=None, data_attrs=None):

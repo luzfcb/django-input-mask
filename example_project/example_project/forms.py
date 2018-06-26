@@ -1,8 +1,9 @@
 from django import forms
 
-from input_mask.fields import DecimalField, MoneyField as OriginalMoneyField
-from input_mask.widgets import InputMask
+from input_mask.fields import DecimalField
+from input_mask.fields import MoneyField as OriginalMoneyField
 from input_mask.utils import mask
+from input_mask.widgets import InputMask
 
 
 class PhoneNumberMask(InputMask):

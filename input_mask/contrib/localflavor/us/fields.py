@@ -1,7 +1,7 @@
+from decimal import Decimal
+
 from ....fields import DecimalField
 from .widgets import USDecimalInput
-
-from decimal import Decimal
 
 
 class USDecimalField(DecimalField):

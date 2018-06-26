@@ -1,5 +1,5 @@
-import sys
 import os.path
+import sys
 
 # Makes input_mask available
 sys.path.append(os.path.dirname(__file__) + '/../../')

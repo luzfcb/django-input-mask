@@ -1,6 +1,7 @@
+from decimal import Decimal
+
 from django.test import TestCase
 
-from decimal import Decimal
 from tests.forms import Form1
 
 

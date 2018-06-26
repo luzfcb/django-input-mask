@@ -1,10 +1,12 @@
 from django.views.generic import FormView
+
+from .forms import BasicForm
+
 try:
     from django.urls import reverse
 except IndexError:
     from django.core.urlresolvers import reverse
 
-from .forms import BasicForm
 
 
 class BasicFormView(FormView):
