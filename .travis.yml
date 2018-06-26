@@ -4,15 +4,21 @@ sudo: false
 
 python:
   - "2.7"
-  - "3.4"
+  - "3.6"
   - "pypy"
 
+cache:
+  directories:
+    - $HOME/.cache/pip
+
 env:
-  - TOX_ENV=lnx-Django17
-  - TOX_ENV=lnx-Django18
+  - TOXENV=lnx-Django17
+  - TOXENV=lnx-Django18
+  - TOXENV=lnx-Django111
+  - TOXENV=lnx-Django20
 
 install:
-  - pip install 'tox>=2'
+  - pip install 'tox>=2' -U
 
 script:
   - tox

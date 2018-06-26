@@ -1,5 +1,8 @@
 from django.views.generic import FormView
-from django.core.urlresolvers import reverse
+try:
+    from django.urls import reverse
+except IndexError:
+    from django.core.urlresolvers import reverse
 
 from .forms import BasicForm
 

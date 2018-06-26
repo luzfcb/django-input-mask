@@ -33,7 +33,7 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        'Django>=1.7,<2.0',
+        'Django>=1.7,<2.1',
         'six',
     ],
     test_suite="runtests.runtests",

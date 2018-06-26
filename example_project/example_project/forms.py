@@ -1,6 +1,6 @@
 from django import forms
 
-from input_mask.fields import DecimalField, MoneyField
+from input_mask.fields import DecimalField, MoneyField as OriginalMoneyField
 from input_mask.widgets import InputMask
 from input_mask.utils import mask
 
@@ -13,7 +13,7 @@ class SSNMask(InputMask):
     mask = {'mask': '999-99-9999'}
 
 
-class MoneyField(MoneyField):
+class MoneyField(OriginalMoneyField):
     def __init__(self, *args, **kwargs):
         mask = {
             'precision': 0,

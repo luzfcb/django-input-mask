@@ -1,4 +1,8 @@
-from django.conf.urls import url
+try:
+    from django.urls import re_path
+except ImportError:
+    from django.conf.urls import url as re_path
+
 
 from .views import BasicFormView
 
@@ -7,5 +11,5 @@ from .views import BasicFormView
 # admin.autodiscover()
 
 urlpatterns = [
-    url(r'^$', BasicFormView.as_view(), name='form'),
+    re_path(r'^$', BasicFormView.as_view(), name='form'),
 ]
