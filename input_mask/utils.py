@@ -19,6 +19,7 @@ def mask_cls(widget_cls, js=None, mask=None, data_attrs=None):
 
         def __init__(self, **kwargs):
             # read mask from kwargs
+            self.original_maxlength = None
             mask = self._parse_mask_attr(kwargs.pop('mask', {}))
 
             super(InputMask, self).__init__(**kwargs)
@@ -48,6 +49,21 @@ def mask_cls(widget_cls, js=None, mask=None, data_attrs=None):
             if isinstance(mask, six.string_types):
                 return {'mask': mask}
             return mask
+
+        def get_context(self, *args, **kwargs):
+            context = super(InputMask, self).get_context(*args, **kwargs)
+            return context
+
+        def build_attrs(self, *args, **kwargs):
+            """Build an attribute dictionary."""
+            attrs = super(InputMask, self).build_attrs(*args, **kwargs)
+            if 'maxlength' in attrs and self.mask:
+                maxlength = int(attrs['maxlength'])
+                self.original_maxlength = maxlength
+                len_mask = len(self.mask.get('mask', maxlength))
+                if maxlength < len_mask:
+                    attrs['maxlength'] = str(len_mask)
+            return attrs
 
     return InputMask
 

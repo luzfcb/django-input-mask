@@ -9,7 +9,7 @@
         <form action="" method="POST">
             {% csrf_token %}
 
-            {{ form }}
+            {{ form.as_table }}
 
             <button type="button"
                     onclick="$('[id^=id_decimal_field]').val('invalid')">
